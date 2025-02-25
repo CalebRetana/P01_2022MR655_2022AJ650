@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\retan\\source\\repos\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj": {}
+    "C:\\Users\\coman\\OneDrive\\Escritorio\\Parcial01\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj": {}
   },
   "projects": {
-    "C:\\Users\\retan\\source\\repos\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj": {
+    "C:\\Users\\coman\\OneDrive\\Escritorio\\Parcial01\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\retan\\source\\repos\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj",
+        "projectUniqueName": "C:\\Users\\coman\\OneDrive\\Escritorio\\Parcial01\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj",
         "projectName": "P01_2022MR655_2022AJ650",
-        "projectPath": "C:\\Users\\retan\\source\\repos\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj",
-        "packagesPath": "C:\\Users\\retan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\retan\\source\\repos\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\obj\\",
+        "projectPath": "C:\\Users\\coman\\OneDrive\\Escritorio\\Parcial01\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650.csproj",
+        "packagesPath": "C:\\Users\\coman\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\coman\\OneDrive\\Escritorio\\Parcial01\\P01_2022MR655_2022AJ650\\P01_2022MR655_2022AJ650\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\retan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\coman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

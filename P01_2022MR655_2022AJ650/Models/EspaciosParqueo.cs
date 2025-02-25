@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace P01_2022MR655_2022AJ650.Models
 {
@@ -8,7 +9,7 @@ namespace P01_2022MR655_2022AJ650.Models
         public int Id { get; set; }
 
         public int SucursalId { get; set; }
-
+        [JsonIgnore]
         public Sucursales Sucursal { get; set; }
 
 
@@ -20,6 +21,8 @@ namespace P01_2022MR655_2022AJ650.Models
         public decimal CostoPorHora { get; set; }
 
         public string Estado { get; set; }
+        [JsonIgnore]
+        public ICollection<Reservas>? Reservas { get; set; }
 
     }
 }
