@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using P01_2022MR655_2022AJ650.Dto;
 using P01_2022MR655_2022AJ650.Models;
+using System;
+using System.Linq;
 
 namespace P01_2022MR655_2022AJ650.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/sucursales")]
     public class SucursalesController : ControllerBase
     {
         private readonly ParqueoContext _context;
@@ -17,60 +18,56 @@ namespace P01_2022MR655_2022AJ650.Controllers
             _context = context;
         }
 
+        // 🔹 OBTENER TODAS LAS SUCURSALES
         [HttpGet]
         [Route("GetAll")]
         public IActionResult GetSucursales()
         {
             try
             {
-                var sucursales = (from s in _context.Sucursales
-                                  join u in _context.Usuarios on s.AdministradorId equals u.Id
-                                  select new SucursalDto
-                                  {
-                                       
-                                      Nombre = s.Nombre,
-                                      Direccion = s.Direccion,
-                                      Telefono = s.Telefono,
-                                      Administrador = u.Nombre,
-                                      EspaciosDisponibles = s.NumeroEspacios
-                                  }).ToList();
+                var sucursales = _context.Sucursales
+                    .Join(_context.Usuarios,
+                        s => s.AdministradorId,
+                        u => u.Id,
+                        (s, u) => new SucursalDto
+                        {
+                            Nombre = s.Nombre,
+                            Direccion = s.Direccion,
+                            Telefono = s.Telefono,
+                            Administrador = u.Nombre,
+                            EspaciosDisponibles = s.NumeroEspacios
+                        })
+                    .ToList();
 
                 return Ok(sucursales);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Error: {ex.Message}");
             }
         }
 
+        // 🔹 OBTENER UNA SUCURSAL POR ID
         [HttpGet]
         [Route("Get/{id}")]
         public IActionResult GetSucursal(int id)
         {
             try
             {
-                var sucursal = (from s in _context.Sucursales
-                                join u in _context.Usuarios on s.AdministradorId equals u.Id
-                                where s.Id == id
-                                select new SucursalConEspaciosDto
-                                {
-                                
-                                    Nombre = s.Nombre,
-                                    Direccion = s.Direccion,
-                                    Telefono = s.Telefono,
-                                    Administrador = u.Nombre,
-                                    EspaciosDisponibles = s.NumeroEspacios,
-                                    Espacios = (from e in _context.EspaciosParqueo
-                                                where e.SucursalId == s.Id
-                                                select new EspacioParqueoDto
-                                                {
-                                                    
-                                                    Numero = e.Numero,
-                                                    Ubicacion = e.Ubicacion,
-                                                    CostoPorHora = e.CostoPorHora,
-                                                    Estado = e.Estado
-                                                }).ToList()
-                                }).FirstOrDefault();
+                var sucursal = _context.Sucursales
+                    .Where(s => s.Id == id)
+                    .Join(_context.Usuarios,
+                        s => s.AdministradorId,
+                        u => u.Id,
+                        (s, u) => new SucursalDto
+                        {
+                            Nombre = s.Nombre,
+                            Direccion = s.Direccion,
+                            Telefono = s.Telefono,
+                            Administrador = u.Nombre,
+                            EspaciosDisponibles = s.NumeroEspacios
+                        })
+                    .FirstOrDefault();
 
                 if (sucursal == null)
                     return NotFound("La sucursal no existe.");
@@ -79,9 +76,96 @@ namespace P01_2022MR655_2022AJ650.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Error: {ex.Message}");
             }
         }
 
+        // 🔹 AGREGAR UNA NUEVA SUCURSAL
+        [HttpPost]
+        [Route("Add")]
+        public IActionResult AddSucursal([FromBody] SucursalDto sucursalDto)
+        {
+            if (sucursalDto == null)
+                return BadRequest("Los datos de la sucursal no pueden estar vacíos.");
+
+            try
+            {
+                var administrador = _context.Usuarios.FirstOrDefault(u => u.Nombre == sucursalDto.Administrador);
+                if (administrador == null)
+                    return BadRequest("El administrador especificado no existe.");
+
+                var nuevaSucursal = new Sucursales
+                {
+                    Nombre = sucursalDto.Nombre,
+                    Direccion = sucursalDto.Direccion,
+                    Telefono = sucursalDto.Telefono,
+                    AdministradorId = administrador.Id,
+                    NumeroEspacios = sucursalDto.EspaciosDisponibles
+                };
+
+                _context.Sucursales.Add(nuevaSucursal);
+                _context.SaveChanges();
+
+                return CreatedAtAction(nameof(GetSucursal), new { id = nuevaSucursal.Id }, nuevaSucursal);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al crear la sucursal: {ex.InnerException?.Message ?? ex.Message}");
+            }
+        }
+
+        // 🔹 ACTUALIZAR UNA SUCURSAL
+        [HttpPut]
+        [Route("Update/{id}")]
+        public IActionResult ActualizarSucursal(int id, [FromBody] SucursalDto sucursalDto)
+        {
+            try
+            {
+                var sucursalExistente = _context.Sucursales.Find(id);
+                if (sucursalExistente == null)
+                    return NotFound("La sucursal no existe.");
+
+                var administrador = _context.Usuarios.FirstOrDefault(u => u.Nombre == sucursalDto.Administrador);
+                if (administrador == null)
+                    return BadRequest("El administrador especificado no existe.");
+
+                sucursalExistente.Nombre = sucursalDto.Nombre;
+                sucursalExistente.Direccion = sucursalDto.Direccion;
+                sucursalExistente.Telefono = sucursalDto.Telefono;
+                sucursalExistente.AdministradorId = administrador.Id;
+                sucursalExistente.NumeroEspacios = sucursalDto.EspaciosDisponibles;
+
+                _context.Sucursales.Update(sucursalExistente);
+                _context.SaveChanges();
+
+                return Ok(sucursalExistente);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar la sucursal: {ex.InnerException?.Message ?? ex.Message}");
+            }
+        }
+
+        // 🔹 ELIMINAR UNA SUCURSAL
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IActionResult EliminarSucursal(int id)
+        {
+            try
+            {
+                var sucursal = _context.Sucursales.Find(id);
+                if (sucursal == null)
+                    return NotFound("La sucursal no existe.");
+
+                _context.Sucursales.Remove(sucursal);
+                _context.SaveChanges();
+
+                return Ok("Sucursal eliminada correctamente.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al eliminar la sucursal: {ex.InnerException?.Message ?? ex.Message}");
+            }
+        }
     }
 }
