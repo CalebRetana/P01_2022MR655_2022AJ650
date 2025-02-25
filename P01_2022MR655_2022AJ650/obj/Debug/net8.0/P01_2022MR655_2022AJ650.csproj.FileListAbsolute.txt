@@ -1,0 +1,8 @@
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.csproj.AssemblyReference.cache
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.AssemblyInfoInputs.cache
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.AssemblyInfo.cs
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.csproj.CoreCompileInputs.cache
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\coman\OneDrive\Escritorio\Nueva carpeta (2)\P01_2022MR655_2022AJ650\P01_2022MR655_2022AJ650\obj\Debug\net8.0\P01_2022MR655_2022AJ650.sourcelink.json
