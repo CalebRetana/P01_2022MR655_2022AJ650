@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P01_2022MR655_2022AJ650")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9735622a8a7c4ecb4ef751b8068a591275cd5a3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+581ad6441415d79c879b0644500fbea1f30bc224")]
 [assembly: System.Reflection.AssemblyProductAttribute("P01_2022MR655_2022AJ650")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P01_2022MR655_2022AJ650")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
