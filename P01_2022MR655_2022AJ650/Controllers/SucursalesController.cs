@@ -18,7 +18,6 @@ namespace P01_2022MR655_2022AJ650.Controllers
             _context = context;
         }
 
-        // 🔹 OBTENER TODAS LAS SUCURSALES
         [HttpGet]
         [Route("GetAll")]
         public IActionResult GetSucursales()
@@ -47,7 +46,6 @@ namespace P01_2022MR655_2022AJ650.Controllers
             }
         }
 
-        // 🔹 OBTENER UNA SUCURSAL POR ID
         [HttpGet]
         [Route("Get/{id}")]
         public IActionResult GetSucursal(int id)
@@ -80,7 +78,6 @@ namespace P01_2022MR655_2022AJ650.Controllers
             }
         }
 
-        // 🔹 AGREGAR UNA NUEVA SUCURSAL
         [HttpPost]
         [Route("Add")]
         public IActionResult AddSucursal([FromBody] SucursalDto sucursalDto)

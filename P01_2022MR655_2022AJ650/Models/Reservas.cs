@@ -11,7 +11,7 @@ namespace P01_2022MR655_2022AJ650.Models
         public int EspacioParqueoId { get; set; }
         public EspaciosParqueo EspacioParqueo { get; set; }
         public string Fecha { get; set; }
-        public TimeSpan HoraInicio { get; set; }
+        public string? HoraInicio { get; set; }
         public int CantidadHoras { get; set; }
         public string Estado { get; set; }
 

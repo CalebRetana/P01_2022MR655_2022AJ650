@@ -1,5 +1,220 @@
 [
   {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.EspaciosParqueoController",
+    "Method": "AgregarEspacioParqueo",
+    "RelativePath": "api/EspaciosParqueo/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "espacioDto",
+        "Type": "P01_2022MR655_2022AJ650.Dto.EspacioParqueoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.EspaciosParqueoController",
+    "Method": "EliminarEspacioParqueo",
+    "RelativePath": "api/EspaciosParqueo/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.EspaciosParqueoController",
+    "Method": "GetEspaciosDisponibles",
+    "RelativePath": "api/EspaciosParqueo/disponibles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.EspaciosParqueoController",
+    "Method": "GetEspaciosPorSucursal",
+    "RelativePath": "api/EspaciosParqueo/sucursal/{sucursalId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sucursalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.EspaciosParqueoController",
+    "Method": "ActualizarEspacioParqueo",
+    "RelativePath": "api/EspaciosParqueo/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "espacioDto",
+        "Type": "P01_2022MR655_2022AJ650.Dto.EspacioParqueoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.ReservasController",
+    "Method": "GetReservasActivas",
+    "RelativePath": "api/Reservas/Activas/{usuarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.ReservasController",
+    "Method": "CancelarReserva",
+    "RelativePath": "api/Reservas/CancelarReserva",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reservaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.ReservasController",
+    "Method": "EspaciosReservadosPorDia",
+    "RelativePath": "api/Reservas/EspaciosReservadosPorDia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.ReservasController",
+    "Method": "EspaciosReservadosPorFechaSucursal",
+    "RelativePath": "api/Reservas/EspaciosReservadosPorFechaSucursal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sucursalId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fechaInicio",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "fechaFin",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.ReservasController",
+    "Method": "Reservar",
+    "RelativePath": "api/Reservas/Reservar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "espacioParqueoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "horaInicio",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cantidadHoras",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.SucursalesController",
+    "Method": "GetSucursal",
+    "RelativePath": "api/Sucursales/Get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "P01_2022MR655_2022AJ650.Controllers.SucursalesController",
+    "Method": "GetSucursales",
+    "RelativePath": "api/Sucursales/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "P01_2022MR655_2022AJ650.Controllers.UsuariosController",
     "Method": "CreateUsuario",
     "RelativePath": "api/Usuarios",
