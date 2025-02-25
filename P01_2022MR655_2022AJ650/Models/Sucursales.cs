@@ -18,6 +18,6 @@ namespace P01_2022MR655_2022AJ650.Models
         public Usuario Administrador { get; set; }
 
         public int NumeroEspacios { get; set; }
-
+        public ICollection<EspaciosParqueo>? EspacioParqueo { get; set; }
     }
 }
