@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\P01_2022MR655_2022AJ650.props" />
+</Project>
